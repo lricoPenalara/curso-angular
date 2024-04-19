@@ -1,0 +1,32 @@
+<div class="row">
+  <!-- En pantallas medianas toma 3 posiciones(por ejemplo, 12 columnas
+    entre 3 habría 4 cajas a mostrar)-->
+  <!-- En pantallas pequeñas toma 6 posiciones(por ejemplo, 12 columnas
+    entre 4 habría 6 cajas a mostrar) -->
+
+  @for (gif of gifs; track $index) {
+
+    <div class="col-md-3 col-sm-6">
+
+        <div class="card mb-2 text-center bg-dark">
+
+          <img
+            [src]="gif.images.downsized_medium.url"
+            [alt]="gif.title"
+            class="card-img-top"
+          >
+
+          <div class="card-body text-white">
+            <p class="card-text">
+              {{ gif.title }}
+            </p>
+          </div>
+
+        </div>
+
+    </div>
+
+  }
+
+</div>
+
