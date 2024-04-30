@@ -1,0 +1,25 @@
+
+
+<div class="d-flex justify-content-center">
+
+  <img
+    [src]="url"
+    [alt]="alt"
+    class="card-img-top animate__animated animate__fadeIn"
+    (load)="onLoad()"
+    [ngStyle]="{ display: hasLoaded ? '': 'none'}"
+  />
+
+  <!-- Si hasLoaded esta en true no pongo nada pero si esta en false
+    entonces pongo la imagen oculta ('none') -->
+
+    @if (!hasLoaded) {
+      <img
+      src="assets/loader.svg"
+      height="35"
+      width="35"
+      class="mt-3"
+      />
+    }
+
+</div>
