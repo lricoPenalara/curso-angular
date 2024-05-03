@@ -3,20 +3,31 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
+import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
 
 const routes: Routes = [
 
-  {
-    path: 'home',
-    component: HomePageComponent
-  },
+  // {
+  //   path: '',
+  //   component: HomePageComponent
+  // },
   {
     path: 'about',
     component: AboutPageComponent
   },
   {
+    path: 'contact',
+    component: ContactPageComponent
+  },
+  {
+    path: 'countries',
+    //función de carga que llama el import que recibe un argumento y dice
+    // que si todo sale bien (then) llama a un módulo del que obtiene algo
+    loadChildren: () => import('./countries/countries.module').then( m => m.CountriesModule)
+  },
+  {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'countries'
   },
 
 ];
