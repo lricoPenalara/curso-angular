@@ -15,12 +15,12 @@ export class ByCapitalPageComponent {
 
   constructor( private countriesService: CountriesService ) {}
 
-  searchByCapital( term: string ): void {
-    this.countriesService.searchCapital( term )
+  searchByCapital( capital: string ): void {
+    this.countriesService.searchCapital( capital )
     //necesito el subscribe para recibir notificaciones
       .subscribe( countries =>  {
           this.countries = countries;
-        });
+      });
   }
 
 }
