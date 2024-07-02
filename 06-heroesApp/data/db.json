@@ -2,8 +2,12 @@
   "users": [
     {
       "id": 1,
-      "usuario": "John Doe",
+      "user": "John Doe",
       "email": "john.due@gmail.com"
+    },
+    {
+      "first_appearance": "Mi primer comic #2",
+      "id": 2
     }
   ],
   "heroes": [

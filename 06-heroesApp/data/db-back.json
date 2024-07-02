@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "usuario": "John Doe",
+      "user": "John Doe",
       "email": "john.due@gmail.com"
     }
   ],
@@ -166,6 +166,15 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "id": "8UWVNWZ",
+      "superhero": "Lucía",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Strider",
+      "first_appearance": "Comic Peñalara 2023 #1",
+      "characters": "Lucía",
+      "alt_img": "https://www.latercera.com/resizer/j-ZtEKzoY5fUQtLLGOVNBOpG7Aw=/arc-anglerfish-arc2-prod-copesa/public/6O3E6FX56FCYFGW5NZFOKYGNY4.jpg"
     }
   ]
 }
