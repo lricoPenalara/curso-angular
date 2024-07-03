@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import {FormControl} from '@angular/forms';
+
 import { AuthService } from '../../../auth/services/auth.service';
 import { User } from '../../../auth/interfaces/user.interface';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-layout-page',

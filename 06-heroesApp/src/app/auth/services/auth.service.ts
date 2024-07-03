@@ -53,7 +53,7 @@ export class AuthService {
         catchError( err => of(false) )
       );
 
-      //Con !! nos aseguramos de que sea un valor booleano lo que rergesa
+      // Con !! nos aseguramos de que regrese un valor booleano
 
     }
 
