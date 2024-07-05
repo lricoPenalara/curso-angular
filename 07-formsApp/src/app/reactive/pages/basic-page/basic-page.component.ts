@@ -51,7 +51,7 @@ export class BasicPageComponent implements OnInit {
         for ( const key of Object.keys(errors) ) {
             switch( key ) {
                 case 'required':
-                return 'Este caso es requerido';
+                return 'Este campo es requerido';
 
                 case 'minlength':
                 return `Mínimo ${ errors['minlength'].requiredLength } caracters.`;

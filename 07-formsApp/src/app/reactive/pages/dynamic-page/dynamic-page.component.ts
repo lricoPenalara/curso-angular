@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     templateUrl: './dynamic-page.component.html',
@@ -16,12 +16,72 @@ export class DynamicPageComponent {
             ['Metal Gear', Validators.required ],
             ['Death Stranding', Validators.required ],
         ])
-    })
+    });
+
+    public newFavorite: FormControl = new FormControl( '', Validators.required) ;
 
     constructor( private fb: FormBuilder ) {}
 
     get favoriteGames() {
         return this.myForm.get('favoriteGames') as FormArray;
+    }
+
+    // Comprueba si en el campo hay errores cuando toca
+    isNotValidField( field: string ): boolean | null {
+      return this.myForm.controls[field].errors
+          && this.myForm.controls[field].touched;
+   }
+
+   // index: elemento que esta fallando o ha sido tocado
+   isNotValidFieldInArray( formArray: FormArray, index: number ) {
+      return formArray.controls[index].errors
+        && formArray.controls[index].touched;
+   }
+
+   getFieldError( field: string ): string | null {
+
+        // Si el form no tiene ese campo no regreso nada
+        if ( !this.myForm.controls[field] ) return null;
+
+        // Si el form si tiene el campo
+        // || {} => Si errors es nulo regresa un objeto vacío
+        const errors = this.myForm.controls[field].errors || {};
+
+        for ( const key of Object.keys(errors) ) {
+            switch( key ) {
+                case 'required':
+                return 'Este campo es requerido';
+
+                case 'minlength':
+                return `Mínimo ${ errors['minlength'].requiredLength } caracters.`;
+            }
+
+        }
+        return null;
+    }
+
+    onAddToFavorites():void {
+
+      // Si el campo esta vacío no regresa nada
+      if (this.newFavorite.invalid ) return;
+
+      //Si el campo tiene algo:
+      //Constante con el nuevo juego
+      const newGame = this.newFavorite.value;
+
+      // Insertar el nuevo juego en el Arreglo favoriteGames
+      // this.favoriteGames.push( new FormControl( newGame, Validators.required ) );
+      this.favoriteGames.push(
+        this.fb.control( newGame, Validators.required )
+      );
+
+      //Una vez se guarda, reestablecer el campo agregar
+      this.newFavorite.reset();
+
+    }
+
+    onDeleteFavorite( index:number ):void {
+      this.favoriteGames.removeAt(index);
     }
 
     onSubmit():void {
@@ -31,6 +91,7 @@ export class DynamicPageComponent {
             return;
         }
         console.log(this.myForm.value);
+        (this.myForm.controls['favoriteGames'] as FormArray ) = this.fb.array([]);
         this.myForm.reset();
     }
 }
