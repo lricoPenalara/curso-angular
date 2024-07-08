@@ -11,7 +11,7 @@
                    formControlName="name"
                    placeholder="Nombre de la persona">
             <span class="form-text text-danger">
-                   @if (isNotValidField('name')) {
+                   @if (isValidField('name')) {
                       {{ getFieldError('name') }}
                    }
             </span>
@@ -58,7 +58,7 @@
                     </button>
                   </div>
                   <span class="form-text text-danger">
-                    @if (isNotValidFieldInArray(favoriteGames, i)) {
+                    @if (isValidFieldInArray(favoriteGames, i)) {
                        Este campo es requerido
                     }
                   </span>

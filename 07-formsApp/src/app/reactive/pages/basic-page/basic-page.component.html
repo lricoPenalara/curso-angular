@@ -16,7 +16,7 @@
                            formControlName="name"
                            placeholder="Nombre del producto">
 
-                    @if (isNotValidField('name')) {
+                    @if (isValidField('name')) {
                         <span class="form-text text-danger">
                           {{ getFieldError('name') }}
                         </span>
@@ -33,7 +33,7 @@
                            class="form-control"
                            formControlName="price"
                            placeholder="Precio del producto">
-                    @if (isNotValidField('price')) {
+                    @if (isValidField('price')) {
                         <span class="form-text text-danger">
                           El precio debe de ser 0 o mayor.
                         </span>
@@ -51,7 +51,7 @@
                            formControlName="inStorage"
                            placeholder="Existencias del producto">
 
-                      @if (isNotValidField('inStorage')) {
+                      @if (isValidField('inStorage')) {
                           <span class="form-text text-danger">
                             Las existencias deben de ser 0 o mayor.
                           </span>
