@@ -1,0 +1,16 @@
+<p>product-page works!</p>
+
+
+@if (isProductVisible) {
+  <products-price
+  [price] = "currentPrice"
+  />
+}
+
+<button (click)="isProductVisible = !isProductVisible">
+  Toggle
+</button>
+
+<button (click)="incresePrice()">
+  +1 Price
+</button>
