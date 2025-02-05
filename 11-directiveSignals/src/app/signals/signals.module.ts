@@ -7,7 +7,6 @@ import { CounterPageComponent } from './pages/counter-page/counter-page.componen
 import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.component';
 import { PropertiesPageComponent } from './pages/properties-page/properties-page.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
-import { UsersServiceComponent } from './services/users-service/users-service.component';
 
 
 @NgModule({
@@ -17,7 +16,6 @@ import { UsersServiceComponent } from './services/users-service/users-service.co
     UserInfoPageComponent,
     PropertiesPageComponent,
     SideMenuComponent,
-    UsersServiceComponent
   ],
   imports: [
     CommonModule,
