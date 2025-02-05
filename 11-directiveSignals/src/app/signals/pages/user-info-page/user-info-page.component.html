@@ -10,16 +10,20 @@
     <button (click)="loadUser(userId() + 1)" class="btn btn-primary">Siguiente</button>
   </div>
 
-  <div class="col-8">
-    <h3>Usuario:</h3>
-    <p>Correo: </p>
-    <p>Nombre: </p>
+  @if (currentUser()) {
+    <div class="col-8">
+      <h3>Usuario:</h3>
+      <p>Correo: {{ currentUser()!.email }} </p>
+      <p>Nombre: {{ fullName() }}</p>
 
-    <img src="..." alt="Avatar">
-  </div>
+      <img [src]="currentUser()!.avatar" alt="Avatar" class="rounded">
+    </div>
+  }
 
-  <div class="col-8 text-danger">
-    <h3>Usuario no encontrado</h3>
-  </div>
+  @if (!userWasFound()) {
+    <div class="col-8 text-danger">
+      <h3>Usuario no encontrado</h3>
+    </div>
+  }
 
 </div>
